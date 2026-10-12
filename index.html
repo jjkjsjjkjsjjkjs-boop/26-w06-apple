@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f8ef" />
+    <title>사과 십 — 사과 숫자 퍼즐</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="game.js" defer></script>
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="game-header">
+        <a class="brand" href="./" aria-label="사과 십 홈">
+          <span class="brand-icon" aria-hidden="true">🍎</span>
+          <span>사과 십</span>
+        </a>
+        <p class="header-note">숫자를 모아 사과를 수확해요</p>
+      </header>
+
+      <section class="game-card" aria-labelledby="game-title">
+        <div class="intro">
+          <p class="eyebrow">오늘의 사과 밭</p>
+          <h1 id="game-title">합해서 <span>10의 배수!</span></h1>
+          <p class="instructions">
+            이웃한 숫자를 드래그해 합이 10의 배수가 되면 사과를 수확해요.
+          </p>
+        </div>
+
+        <div class="scoreboard" aria-label="게임 정보">
+          <div class="score-item">
+            <span class="score-label">현재 점수</span>
+            <strong id="score">0</strong>
+          </div>
+          <div class="score-item timer-item">
+            <span class="score-label">남은 시간</span>
+            <strong id="timer" role="timer" aria-live="off">01:00</strong>
+          </div>
+          <div class="score-item">
+            <span class="score-label">최고 점수</span>
+            <strong id="best-score">0</strong>
+          </div>
+        </div>
+
+        <div class="board-wrap">
+          <div
+            id="board"
+            class="board"
+            role="group"
+            aria-label="8 곱하기 8 숫자 사과 격자"
+            aria-describedby="board-help"
+          ></div>
+        </div>
+
+        <div class="game-footer">
+          <p id="board-help" class="board-help">
+            숫자를 이웃한 칸으로 이어서 드래그하세요. 드래그를 놓으면 합계를 확인해요.
+          </p>
+          <div class="game-controls">
+            <p id="game-message" class="game-message" role="status" aria-live="polite">
+              시작 버튼을 누르면 1분 동안 사과를 수확할 수 있어요.
+            </p>
+            <button id="start-button" class="restart-button start-button" type="button">
+              🍎 게임 시작
+            </button>
+            <button id="restart-button" class="restart-button" type="button">
+              <span aria-hidden="true">↻</span> 새 게임
+            </button>
+          </div>
+        </div>
+      </section>
+      <footer class="page-footer">🍏 이웃한 사과를 이어서 더 큰 점수에 도전하세요</footer>
+    </main>
+
+    <div id="confetti" class="confetti" aria-hidden="true"></div>
+
+    <dialog id="result-dialog" class="result-dialog" aria-labelledby="result-title" aria-describedby="result-description">
+      <div class="result-card">
+        <span class="result-icon" aria-hidden="true">🍎</span>
+        <p class="eyebrow">수확 완료</p>
+        <h2 id="result-title">시간 종료!</h2>
+        <p id="result-description" class="result-description">이번 사과 밭에서 거둔 점수예요.</p>
+        <div class="result-scores">
+          <div class="result-score">
+            <span class="score-label">최종 점수</span>
+            <strong id="final-score">0</strong>
+          </div>
+          <div class="result-score">
+            <span class="score-label">최고 점수</span>
+            <strong id="result-best-score">0</strong>
+          </div>
+        </div>
+        <button id="result-restart-button" class="restart-button result-restart-button" type="button">
+          ↻ 다시 시작
+        </button>
+      </div>
+    </dialog>
+  </body>
+</html>
